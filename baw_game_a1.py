@@ -15,7 +15,7 @@ def wait():
 
 #Skill levels 1-50; Race gives boosts to cetain skills.
 #Skills: Combat, Stealth, Magic, and Speech
-#Genetic Skills level by +10, class by +5, use by +1.]
+#Genetic Skills level by +10, class by +5, use by +1.
 #Level Speed is for Non-Genetic Skills.
 
 #Races: Human(2), Elven(2), Half-Blood(1)
