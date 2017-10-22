@@ -31,7 +31,7 @@ def wait():
 #Start of our game
 print "Thank you for testing our game!"
 wait()
-print 'next part'
+print 'continue'
 
 
 
