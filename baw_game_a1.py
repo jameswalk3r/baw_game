@@ -1,11 +1,29 @@
 #Libraries to import
 import random
-import msvcrt as m
+import dice
 
-#Functions
-def wait():
-    m.getch()
+# Code to support wait() across platforms
+# Sould only be run once, rather than within the function for better performance
+try:
+    # Win32
+    from msvcrt import getch
+except ImportError:
+    # UNIX
+    def getch():
+        import sys, tty, termios
+        fd = sys.stdin.fileno()
+        old = termios.tcgetattr(fd)
+        try:
+            tty.setraw(fd)
+            return sys.stdin.read(1)
+        finally:
+            termios.tcsetattr(fd, termios.TCSADRAIN, old)
+def wait(wait_text):
+    print(wait_text)
+    getch()
 
+
+wait('Press any key to continue...')
 
 
 
@@ -29,10 +47,4 @@ def wait():
 
 
 #Start of our game
-print "Thank you for testing our game!"
-wait()
-print 'continue'
-
-
-
-
+wait ("Thank you for testing our game!")
