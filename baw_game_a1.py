@@ -24,12 +24,33 @@ def wait(wait_text):
     getch()
 
 
-wait('Press any key to continue...')
-
-
+#WELCOME TO THE GAME
+wait('Welcome to the game! \nPress any key to continue...') # the \n is a way to press enter in terminal
 
 #Core Ideas
-#Player selects Race and Class.
+#Player creates character's name
+char_name = input('What is your character\'s name?\n')
+print('Your character\'s name is ' + char_name)
+wait('Welcome to your adventure ' + char_name + '. Your destiny awaits!')
+
+#Player selects Race and Class. 
+races = { 1 : 'Human', 2 : 'Elven', 3 : 'Half-Blood'}
+for each_race in races:
+    print(each_race, races[each_race])
+
+player_race = int(input('''Please type the number for your chosen race.
+If you would like to pick a random race, select 0. \n''')) #Must convert to int
+# print(type(player_race)) #Shows us the variable type that is being returned 
+
+if player_race == 0:
+    player_race = dice.roll(1,3) # What happens if we add more races?
+elif player_race > 3: #This is NOT going to work long term. What happens if they type a alpha?
+    # What happens if we add more races?
+    print('Please make a valid choice.')
+    player_race = int(input())
+
+wait('You have chosen to be ' + races[player_race])
+
 #Class = How fast certain skills level up and slight skill boosts.
 
 #Skill levels 1-50; Race gives boosts to cetain skills.
