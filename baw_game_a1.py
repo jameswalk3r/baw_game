@@ -5,9 +5,10 @@ import dice
 # Code to support wait() across platforms
 # Sould only be run once, rather than within the function for better performance
 try:
-    # Win32
+    # Win32 (If running on a windows machine, then this will just import getch)
     from msvcrt import getch
 except ImportError:
+    # If not running on windows, then getch will be defined below. 
     # UNIX
     def getch():
         import sys, tty, termios
