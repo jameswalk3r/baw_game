@@ -2,8 +2,8 @@
 import random
 import dice
 
-# Code to support wait() across platforms
-# Sould only be run once, rather than within the function for better performance
+# Code to support print_and_wait() across platforms
+# Should only be run once, rather than within the function for better performance
 try:
     # Win32 (If running on a windows machine, then this will just import getch)
     from msvcrt import getch
@@ -19,19 +19,19 @@ except ImportError:
             return sys.stdin.read(1)
         finally:
             termios.tcsetattr(fd, termios.TCSADRAIN, old)
-def wait(wait_text):
+def print_and_wait(wait_text):
     print(wait_text)
     getch()
 
 
 #WELCOME TO THE GAME
-wait('Welcome to the game! \nPress any key to continue...') # the \n is a way to press enter in terminal
+print_and_wait('Welcome to the game! \nPress any key to continue...') # the \n is a way to start a new line in terminal when writing a terminal message
 
 #Core Ideas
 #Player creates character's name
 char_name = input('What is your character\'s name?\n')
 print('Your character\'s name is ' + char_name)
-wait('Welcome to your adventure ' + char_name + '. Your destiny awaits!')
+print_and_wait('Welcome to your adventure ' + char_name + '. Your destiny awaits!')
 
 #Player selects Race and Class. 
 races = { 1 : 'Human', 2 : 'Elven', 3 : 'Half-Blood'}
@@ -49,7 +49,7 @@ elif player_race > 3: #This is NOT going to work long term. What happens if they
     print('Please make a valid choice.')
     player_race = int(input())
 
-wait('You have chosen to be ' + races[player_race])
+print_and_wait('You have chosen to be ' + races[player_race])
 
 #Class = How fast certain skills level up and slight skill boosts.
 
@@ -65,8 +65,19 @@ wait('You have chosen to be ' + races[player_race])
 #Elven 2: Low Combat, high Stealth. Level up speed medium.
 #Half-Blood: Low stealth, high magic. Level speed medium.
 
+#Player selects class.
+c = int(input('What is your character\'s class?\n'))
+print_and_wait ('Press 1 for Warrior, 2 for Mage, or 3 for Assassin.')
+if c == 1:
+    print('Warrior\n')
+elif c == 2:
+    print('Mage\n')
+elif c == 3:
+    print('Assassin\n')
+print (c + 'class selcted.')
+
 
 
 
 #Start of our game
-wait ("Thank you for testing our game!")
+print_and_wait("Thank you for testing our game!")
