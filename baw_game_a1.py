@@ -66,15 +66,14 @@ print_and_wait('You have chosen to be ' + races[player_race])
 #Half-Blood: Low stealth, high magic. Level speed medium.
 
 #Player selects class.
-c = int(input('What is your character\'s class?\n'))
-print_and_wait ('Press 1 for Warrior, 2 for Mage, or 3 for Assassin.')
+print('What is your character\'s class?\n')
+c = int(input('Press 1 for Warrior, 2 for Mage, or 3 for Assassin.'))
 if c == 1:
-    print('Warrior\n')
+    print('Warrior class selected')
 elif c == 2:
-    print('Mage\n')
+    print('Mage class selected')
 elif c == 3:
-    print('Assassin\n')
-print (c + 'class selcted.')
+    print('Assassin class selected')
 
 
 
