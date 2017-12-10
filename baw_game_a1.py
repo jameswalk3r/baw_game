@@ -35,7 +35,7 @@ print_and_wait('Welcome to your adventure ' + char_name + '. Your destiny awaits
 
 #Player selects Race and Class. 
 print ('''Please type the number for your chosen race. 
-    If you would like to pick a random race, select 0. \n''')
+If you would like to pick a random race, select 0. \n''')
  
 races = { 1 : 'Human', 2 : 'Elven', 3 : 'Half-Blood'}
 for each_race in races:
