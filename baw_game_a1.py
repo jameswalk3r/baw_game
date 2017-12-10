@@ -2,6 +2,7 @@
 import random
 import dice
 
+
 # Code to support print_and_wait() across platforms
 # Should only be run once, rather than within the function for better performance
 try:
@@ -29,18 +30,22 @@ print_and_wait('Welcome to the game! \nPress any key to continue...') # the \n i
 
 #Core Ideas
 #Player creates character's name
-char_name = input('What is your character\'s name?\n')
-print('Your character\'s name is ' + char_name)
-print_and_wait('Welcome to your adventure ' + char_name + '. Your destiny awaits!')
+player_name = input('What is your character\'s name?\n')
+print('Your character\'s name is ' + player_name)
+print_and_wait('Welcome to your adventure ' + player_name + '. Your destiny awaits!\n')
+
 
 #Player selects Race and Class. 
+print ('''Please type the number for your chosen race. 
+If you would like to pick a random race, select 0. \n''')
+ 
 races = { 1 : 'Human', 2 : 'Elven', 3 : 'Half-Blood'}
 for each_race in races:
     print(each_race, races[each_race])
 
-player_race = int(input('''Please type the number for your chosen race.
-If you would like to pick a random race, select 0. \n''')) #Must convert to int
-# print(type(player_race)) #Shows us the variable type that is being returned 
+player_race = int(input())
+
+print ('You have selected ' + str(player_race))
 
 if player_race == 0:
     player_race = dice.roll(1,3) # What happens if we add more races?
@@ -67,7 +72,7 @@ print_and_wait('You have chosen to be ' + races[player_race])
 
 #Player selects class.
 print('What is your character\'s class?\n')
-c = int(input('Press 1 for Warrior, 2 for Mage, or 3 for Assassin.'))
+c = int(input('Press 1 for Warrior, 2 for Mage, or 3 for Assassin.\n'))
 if c == 1:
     print('Warrior class selected')
 elif c == 2:
@@ -78,5 +83,24 @@ elif c == 3:
 
 
 
-#Start of our game
-print_and_wait("Thank you for testing our game!")
+#Start of our adventure
+
+print (player_name + '... Welcome to The Crystal Key!\n' + '\n')
+print ('''You have found yourself in dank musky dungeon deep under the ancient ruins Kalkavar, \
+with no memory of how you got there...  You realize you're at an intersection. \n''')
+player_move = int(input ('Which way do you want to go?\n\n 1.) Press Forward\n 2.) Turn Back\n 3.) Explore Other Reigons of the Ruins\n'))
+if player_move == 1:
+    print ('You have decided to press forward.')
+elif player_move == 2:
+    print ('You have decided to turn back.')
+elif player_move == 3:
+    print ('You have decided to explore the ruins further\n')
+    explore_choice = input ('Which way do you want to go?\n Left or Right?\n')
+    if str.lower(explore_choice) ==  'left':
+        print ('something')
+    elif str.lower(explore_choice) ==  'right':
+        print ('something else')
+
+
+
+print_and_wait("\n\n\n\n\nThank you for testing our game!")

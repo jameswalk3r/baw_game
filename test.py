@@ -27,13 +27,30 @@ def print_and_wait(wait_text):
 
 # char_age = input('What is your character\'s age?\n')
 # print ("You are " + char_age + " years old.")
-n = int(input('give me a number, 1-4\n'))
-if n == 1:
-    print('fart')
-elif n == 2:
-    print('wet fart')
-elif n == 3:
-    print('shard')
-elif n == 4:
-    print('poo')
-else: print('you moron!')
+# n = int(input('give me a number, 1-4\n'))
+# if n == 1:
+#     print('fart')
+# elif n == 2:
+#     print('wet fart')
+# elif n == 3:
+#     print('shard')
+# elif n == 4:
+#     print('poo')
+# else: print('you moron!')
+
+# if 1 == 1:
+#     print ('yay')
+# if 1 == 1:
+#     print ('thats false')
+#     if 1 == 2:
+#         print ('howdy')
+# if 1 == 1:
+#     print ('okay')
+#     print ('thats whats up')
+#     print ('bye')
+#     if 1 == 2:
+#         print ('howdy')
+# print ('bye')
+
+if '1' == 1:
+    print('yay')
