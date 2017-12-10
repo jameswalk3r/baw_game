@@ -34,13 +34,16 @@ print('Your character\'s name is ' + char_name)
 print_and_wait('Welcome to your adventure ' + char_name + '. Your destiny awaits!')
 
 #Player selects Race and Class. 
+print ('''Please type the number for your chosen race. 
+    If you would like to pick a random race, select 0. \n''')
+ 
 races = { 1 : 'Human', 2 : 'Elven', 3 : 'Half-Blood'}
 for each_race in races:
     print(each_race, races[each_race])
 
-player_race = int(input('''Please type the number for your chosen race.
-If you would like to pick a random race, select 0. \n''')) #Must convert to int
-# print(type(player_race)) #Shows us the variable type that is being returned 
+player_race = int(input())
+
+print ('You have selected ' + str(player_race))
 
 if player_race == 0:
     player_race = dice.roll(1,3) # What happens if we add more races?
