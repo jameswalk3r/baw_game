@@ -32,8 +32,8 @@ print_and_wait('Welcome to the game! \nPress any key to continue...') # the \n i
 #Player creates character's name
 player_name = input('What is your character\'s name?\n')
 print('Your character\'s name is ' + player_name)
-print_and_wait('Welcome to your adventure ' + player_name + '. Your destiny awaits!')
-print (' ')
+print_and_wait('Welcome to your adventure ' + player_name + '. Your destiny awaits!\n')
+
 
 #Player selects Race and Class. 
 print ('''Please type the number for your chosen race. 
