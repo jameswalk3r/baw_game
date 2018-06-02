@@ -105,9 +105,9 @@ elif player_move == 3:
             print ('back placeholder')
     if str.lower(explore_choice) ==  'right':
         player_1_choice = int(input ('You look down and see a tunnel with a chest at the bottom.\n\n 1.)Drop Down\n 2.)Turn Back\n'))
-        if player_1L_choice == 1:
+        if player_1_choice == 1:
             print ('drop placeholder')
-        if player_1L_choice == 2:
+        if player_1_choice == 2:
             print ('back placeholder')
 
 
