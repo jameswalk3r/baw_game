@@ -98,19 +98,17 @@ elif player_move == 3:
     print ('You have decided to explore the ruins further\n')
     explore_choice = input ('Which way do you want to go?\n Left or Right?\n')
     if str.lower(explore_choice) ==  'left':
-        player_1L_choice = input ('There is a steep drop, it\'s safe to go down but you won\'t be able to get back up.\n\n 1.)Drop Down\n 2.)Turn Back\n')
+        player_1_choice = int(input ('There is a steep drop, it\'s safe to go down but you won\'t be able to get back up.\n\n 1.)Drop Down\n 2.)Turn Back\n'))
+        if player_1_choice == 1:
+            print ('drop placeholder')
+        if player_1_choice == 2:
+            print ('back placeholder')
+    if str.lower(explore_choice) ==  'right':
+        player_1_choice = int(input ('You look down and see a tunnel with a chest at the bottom.\n\n 1.)Drop Down\n 2.)Turn Back\n'))
         if player_1L_choice == 1:
             print ('drop placeholder')
         if player_1L_choice == 2:
             print ('back placeholder')
-        elif str.lower(explore_choice) ==  'right':
-            player_1L_choice = int(input ('You look down and see a tunnel with a chest at the bottom.\n\n 1.)Drop Down\n 2.)Turn Back\n'))
-    if player_1L_choice == 1:
-        print ('drop placeholder')
-    if player_1L_choice == 2:
-        print ('back placeholder')
-
-
 
 
 print_and_wait("\n\n\n\n\nThank you for testing our game!")
