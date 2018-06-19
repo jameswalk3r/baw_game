@@ -24,16 +24,20 @@ except ImportError:
 # Creating a stats object. This will be used to print the player's statistics at the 
 # top of each screen. 
 stats = ''
+def add_stats(new_stat_label, new_stat_value):
+    global stats
+    stats = stats + '\t' + new_stat_label + ': ' + new_stat_value
 
+# Creates a function that easily clears the screen, depending on the operating system. 
 def clear_screen():
     os.system('cls' if os.name == 'nt' else 'clear')
 
 # This funtion makes it easy to print text and allow the user to choose
 # when they're ready to continue. 
-def print_and_wait(wait_text):
+def print_and_wait(your_text):
     print(stats)
-    print(wait_text)
-    print('Press any key to contine...')
+    print(your_text)
+    print('\n\n\nPress any key to contine...')
     getch()
     clear_screen()
 
@@ -49,14 +53,21 @@ ___________.__             _________                         __         .__     
   |____|   |___|  /\___  >  \______  /|__|   / ____/____  > |__| (____  /____/ |____|__ \___  > ____|
                 \/     \/          \/        \/         \/            \/               \/   \/\/     
 ''')
+
+
 #Core Ideas
 #Player creates character's name
 player_name = input('What is your character\'s name?\n')
+clear_screen()
+
 print('Your character\'s name is ' + player_name)
 print_and_wait('Welcome to your adventure ' + player_name + '. Your destiny awaits!\n')
-
+add_stats('Player Name', player_name)
+add_stats('Age', '472')
 
 #Player selects Race and Class. 
+clear_screen()
+print(stats)
 print ('''Please type the number for your chosen race. 
 If you would like to pick a random race, select 0. \n''')
  
