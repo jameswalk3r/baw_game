@@ -1,7 +1,7 @@
 #Libraries to import
 import random
 import dice
-
+import os
 
 # Code to support print_and_wait() across platforms
 # Should only be run once, rather than within the function for better performance
@@ -20,15 +20,35 @@ except ImportError:
             return sys.stdin.read(1)
         finally:
             termios.tcsetattr(fd, termios.TCSADRAIN, old)
-def print_and_wait(wait_text):
-    print(wait_text)
-    getch()
 
+# Creating a stats object. This will be used to print the player's statistics at the 
+# top of each screen. 
+stats = ''
+
+def clear_screen():
+    os.system('cls' if os.name == 'nt' else 'clear')
+
+# This funtion makes it easy to print text and allow the user to choose
+# when they're ready to continue. 
+def print_and_wait(wait_text):
+    print(stats)
+    print(wait_text)
+    print('Press any key to contine...')
+    getch()
+    clear_screen()
 
 
 #WELCOME TO THE GAME
-print_and_wait('Welcome to The Crystal Key! \nPress any key to continue...\n') # the \n is a way to start a new line in terminal when writing a terminal message
-
+clear_screen()
+print('Welcome to The Crystal Key! ') # the \n is a way to start a new line in terminal when writing a terminal message
+print_and_wait('''
+___________.__             _________                         __         .__     ____  __.            
+\__    ___/|  |__   ____   \_   ___ \_______ ___.__. _______/  |______  |  |   |    |/ _|____ ___.__.
+  |    |   |  |  \_/ __ \  /    \  \/\_  __ <   |  |/  ___/\   __\__  \ |  |   |      <_/ __ <   |  |
+  |    |   |   Y  \  ___/  \     \____|  | \/\___  |\___ \  |  |  / __ \|  |__ |    |  \  ___/\___  |
+  |____|   |___|  /\___  >  \______  /|__|   / ____/____  > |__| (____  /____/ |____|__ \___  > ____|
+                \/     \/          \/        \/         \/            \/               \/   \/\/     
+''')
 #Core Ideas
 #Player creates character's name
 player_name = input('What is your character\'s name?\n')
