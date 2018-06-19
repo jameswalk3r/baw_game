@@ -26,7 +26,7 @@ except ImportError:
 stats = ''
 def add_stats(new_stat_label, new_stat_value):
     global stats
-    stats = stats + '\t' + new_stat_label + ': ' + new_stat_value
+    stats = stats + '   ' + new_stat_label + ': ' + new_stat_value
 
 # Creates a function that easily clears the screen, depending on the operating system. 
 def clear_screen():
@@ -35,12 +35,14 @@ def clear_screen():
 # This funtion makes it easy to print text and allow the user to choose
 # when they're ready to continue. 
 def print_and_wait(your_text):
-    print(stats)
     print(your_text)
     print('\n\n\nPress any key to contine...')
     getch()
     clear_screen()
 
+def print_perma_bar():
+    clear_screen()
+    print(stats + '\n') 
 
 #WELCOME TO THE GAME
 clear_screen()
@@ -58,16 +60,13 @@ ___________.__             _________                         __         .__     
 #Core Ideas
 #Player creates character's name
 player_name = input('What is your character\'s name?\n')
-clear_screen()
-
-print('Your character\'s name is ' + player_name)
-print_and_wait('Welcome to your adventure ' + player_name + '. Your destiny awaits!\n')
 add_stats('Player Name', player_name)
-add_stats('Age', '472')
+print_perma_bar()
+
+print_and_wait('Welcome to your adventure ' + player_name + '. Your destiny awaits!\n')
 
 #Player selects Race and Class. 
-clear_screen()
-print(stats)
+print_perma_bar()
 print ('''Please type the number for your chosen race. 
 If you would like to pick a random race, select 0. \n''')
  
@@ -76,6 +75,7 @@ for each_race in races:
     print(each_race, races[each_race])
 
 player_race = int(input())
+add_stats('Player Race' , races[player_race])
 
 if player_race == 0:
     player_race = dice.roll(1,3) # What happens if we add more races?
@@ -83,7 +83,7 @@ elif player_race > 3: #This is NOT going to work long term. What happens if they
     # What happens if we add more races?
     print('Please make a valid choice.')
     player_race = int(input())
-
+print_perma_bar()
 print_and_wait('You have chosen to be ' + races[player_race])
 
 #Class = How fast certain skills level up and slight skill boosts.
@@ -97,20 +97,16 @@ print_and_wait('You have chosen to be ' + races[player_race])
 #Human 1: Well-rounded; not best in any skills. Level speed slow.
 #Human 2: Low Stealth, high Speech. Level up speed medium.
 #Elven 1: Low Combat, high Magic. Level up speed medium/fast.
-#Elven 2: Low Combat, high Stealth. Level up speed medium.
-#Half-Blood: Low stealth, high magic. Level speed medium.
+    #Elven 2: Low Combat, high StealthZprint_perma_bar()
 
-#Player selects class.
+print_perma_bar()
 print('\nWhat is your character\'s class?\n')
-player_class = int(input('Press 1 for Warrior, 2 for Mage, or 3 for Assassin.\n'))
-if player_class == 1:
-    print('Warrior class selected\n\n')
-elif player_class == 2:
-    print('Mage class selected\n\n')
-elif player_class == 3:
-    print('Assassin class selected\n\n')
+classes = { 1 : 'Warrior', 2 : 'Mage', 3 : 'Assassin'}
+for each_class in classes:
+    print(each_class, classes[each_class])
 
-
+player_class = int(input())
+add_stats('Player Class' , classes[player_class])
 
 # player_name = 'TESTNAME'
 # player_race = 1
@@ -118,6 +114,7 @@ elif player_class == 3:
 
 #Start of our adventure
 
+print_perma_bar()
 print ('''You have found yourself in dank musky dungeon deep under the ancient ruins of Kalkavar, \
 with no memory of how you got there...\n  You realize you're at an intersection. \n''')
 player_move = int(input ('Which way do you want to go?\n\n 1.) Press Forward\n 2.) Turn Back\n 3.) Explore Other Reigons of the Ruins\n'))
