@@ -67,24 +67,23 @@ print_and_wait('Welcome to your adventure ' + player_name + '. Your destiny awai
 
 #Player selects Race and Class. 
 print_perma_bar()
-print ('''Please type the number for your chosen race. 
-If you would like to pick a random race, select 0. \n''')
+print ('''Please type the number for your chosen race. ''')
  
 races = { 1 : 'Human', 2 : 'Elven', 3 : 'Half-Blood'}
 for each_race in races:
-    print(each_race, races[each_race])
+    print(each_race, races[each_race], '')
 
-player_race = int(input())
-add_stats('Player Race' , races[player_race])
+player_race = input()
 
-if player_race == 0:
+if type(player_race) != int and player_race not in [1,2,3]:
     player_race = dice.roll(1,3) # What happens if we add more races?
-elif player_race > 3: #This is NOT going to work long term. What happens if they type a alpha?
-    # What happens if we add more races?
-    print('Please make a valid choice.')
-    player_race = int(input())
+    print('''Wrong answer. Your race has been chosen for you.\nThis is why we don\'t have nice things...\n''')
+
+add_stats('Player Race' , races[player_race])
+print_and_wait('Congratulations! You have chosen to be ' + races[player_race] + '. Mom would be so proud!')
+
 print_perma_bar()
-print_and_wait('You have chosen to be ' + races[player_race])
+
 
 #Class = How fast certain skills level up and slight skill boosts.
 
@@ -100,7 +99,8 @@ print_and_wait('You have chosen to be ' + races[player_race])
     #Elven 2: Low Combat, high StealthZprint_perma_bar()
 
 print_perma_bar()
-print('\nWhat is your character\'s class?\n')
+print('''What is your character\'s class? 
+If you would like to pick a random race, select 0.''')
 classes = { 1 : 'Warrior', 2 : 'Mage', 3 : 'Assassin'}
 for each_class in classes:
     print(each_class, classes[each_class])
