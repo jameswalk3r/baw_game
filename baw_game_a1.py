@@ -75,6 +75,11 @@ for each_race in races:
 
 player_race = input()
 
+try:
+    player_race = int(player_race)
+except:
+    pass
+
 if type(player_race) != int and player_race not in [1,2,3]:
     player_race = dice.roll(1,3) # What happens if we add more races?
     print('''Wrong answer. Your race has been chosen for you.\nThis is why we don\'t have nice things...\n''')
